@@ -23,4 +23,4 @@ add_custom_command(
         TARGET ${LIB_NAME}  POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
                 ${CMAKE_CURRENT_BINARY_DIR}/$<TARGET_FILE_NAME:${LIB_NAME}>
-			    "C:/Users/tam/Documents/lott/addons/gdmaze/bin")
+			    "D:/git/the-lott/addons/gdmaze/bin")

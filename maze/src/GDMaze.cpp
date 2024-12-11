@@ -98,7 +98,7 @@ GDMaze* GDMaze::setWall(godot::Vector2i wall) {
 	return this;
 }
 
-void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
+void GDMaze::make_it(TileMapLayer* pTileMap, int layer, int seed) {
 	const int DIM=2;
 	const int l_north[DIM]  = {  0, -1 };
 	const int l_south[DIM]  = {  0, +1 };
@@ -162,10 +162,10 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     			for (int cx=0; cx < mWallWidth*2+mRoomWidth; ++cx) {
     				// North
     				Vector2i coords(roomCorner.x+cx, roomCorner.y+cy);
-    				pTileMap->set_cell(layer,coords,0,mWall,0);
+    				pTileMap->set_cell(coords,0,mWall);
     				// South
     				coords.y += mRoomHeight+mWallHeight;
-    				pTileMap->set_cell(layer,coords,0,mWall,0);
+    				pTileMap->set_cell(coords,0,mWall);
     			}
     		}
     		// East+West walls
@@ -173,10 +173,10 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     			for (int cx=0; cx < mWallWidth; ++cx) {
     				// West
     				Vector2i coords(roomCorner.x+cx, roomCorner.y+cy);
-    				pTileMap->set_cell(layer,coords,0,mWall,0);
+    				pTileMap->set_cell(coords,0,mWall);
     				// East
     				coords.x += mRoomWidth+mWallWidth;
-    				pTileMap->set_cell(layer,coords,0,mWall,0);
+    				pTileMap->set_cell(coords,0,mWall);
     			}
     		}
     	}
@@ -194,7 +194,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     			for (int cy=0; cy < mWallHeight; ++cy) {
     				for (int cx=0; cx < mDoorWidth; ++cx) {
     					Vector2i coords(roomCorner.x+offsetX+cx, roomCorner.y+cy);
-    					pTileMap->set_cell(layer,coords,0,mFloor,0);
+    					pTileMap->set_cell(coords,0,mFloor);
     				}
     			}
     		}
@@ -203,7 +203,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     			for (int cy=0; cy < mWallHeight; ++cy) {
     				for (int cx=0; cx < mDoorWidth; ++cx) {
     					Vector2i coords(roomCorner.x+offsetX+cx, roomCorner.y+mRoomHeight+mWallHeight+cy);
-    					pTileMap->set_cell(layer,coords,0,mFloor,0);
+    					pTileMap->set_cell(coords,0,mFloor);
     				}
     			}
     		}
@@ -214,7 +214,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     			for (int cx=0; cx < mWallWidth; ++cx) {
     				for (int cy=0; cy < mDoorHeight; ++cy) {
     					Vector2i coords(roomCorner.x+mRoomWidth+mWallWidth+cx, roomCorner.y+offsetY+cy);
-    					pTileMap->set_cell(layer,coords,0,mFloor,0);
+    					pTileMap->set_cell(coords,0,mFloor);
     				}
     			}
     		}
@@ -223,7 +223,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     			for (int cx=0; cx < mWallWidth; ++cx) {
     				for (int cy=0; cy < mDoorHeight; ++cy) {
     					Vector2i coords(roomCorner.x+cx, roomCorner.y+offsetY+cy);
-    					pTileMap->set_cell(layer,coords,0,mFloor,0);
+    					pTileMap->set_cell(coords,0,mFloor);
     				}
     			}
     		}
@@ -247,7 +247,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     					for (int cy=0; cy < (mRoomHeight-mDoorHeight)/2; ++cy) {
     						for (int cx=0; cx < mWallWidth; ++cx) {
     							Vector2i coords(roomCorner.x+cx, roomCorner.y+cy);
-    							pTileMap->set_cell(layer,coords,0,mFloor,0);
+    							pTileMap->set_cell(coords,0,mFloor);
     						}
     					}
     				}
@@ -258,7 +258,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     					for (int cy=0; cy < (mRoomHeight-mDoorHeight)/2; ++cy) {
     						for (int cx=0; cx < mWallWidth; ++cx) {
     							Vector2i coords(roomCorner.x+cx, roomCorner.y+cy);
-    							pTileMap->set_cell(layer,coords,0,mFloor,0);
+    							pTileMap->set_cell(coords,0,mFloor);
     						}
     					}
 
@@ -275,7 +275,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     					for (int cy=0; cy < mWallHeight; ++cy) {
     						for (int cx=0; cx < (mRoomWidth-mDoorWidth)/2; ++cx) {
     							Vector2i coords(roomCorner.x+cx, roomCorner.y+cy);
-    							pTileMap->set_cell(layer,coords,0,mFloor,0);
+    							pTileMap->set_cell(coords,0,mFloor);
     						}
     					}
     				}
@@ -286,7 +286,7 @@ void GDMaze::make_it(TileMap* pTileMap, int layer, int seed) {
     					for (int cy=0; cy < mWallHeight; ++cy) {
     						for (int cx=0; cx < (mRoomWidth-mDoorWidth)/2; ++cx) {
     							Vector2i coords(roomCorner.x+cx, roomCorner.y+cy);
-    							pTileMap->set_cell(layer,coords,0,mFloor,0);
+    							pTileMap->set_cell(coords,0,mFloor);
     						}
     					}
     				}

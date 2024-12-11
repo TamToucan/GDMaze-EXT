@@ -2,7 +2,7 @@
 #define GD_MAZE_H
 
 #include <godot_cpp/classes/object.hpp>
-#include <godot_cpp/classes/tile_map.hpp>
+#include <godot_cpp/classes/tile_map_layer.hpp>
 
 namespace godot {
 
@@ -55,7 +55,7 @@ public:
 	GDMaze* setFloor(godot::Vector2i floor);
 	GDMaze* setWall(godot::Vector2i wall);
 
-	void make_it(TileMap* pTileMap, int layer, int seed);
+	void make_it(TileMapLayer* pTileMap, int layer, int seed);
 
 private:
     godot::Vector2i roomToCell(int rx, int ry);
